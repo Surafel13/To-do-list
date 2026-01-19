@@ -231,3 +231,26 @@ textarea {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+/* Notification Prompt */
+.notification-prompt {
+    background-color: var(--surface);
+    border-left: 4px solid var(--primary);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    animation: slideIn 0.3s ease;
+}
+
+.notification-prompt p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.notification-prompt.hidden {
+    display: none;
+}
