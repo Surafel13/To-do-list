@@ -291,3 +291,50 @@ textarea {
     padding: 40px 20px;
     font-style: italic;
 }
+
+
+/* Task Card */
+.task-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    transition: all 0.3s ease;
+    animation: slideIn 0.3s ease;
+}
+
+.task-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.task-card.due-soon {
+    border-left: 4px solid var(--warning);
+    background-color: var(--surface);
+}
+
+.task-card.overdue {
+    border-left: 4px solid var(--destructive);
+    background-color: var(--surface);
+}
+
+.task-card.completed {
+    opacity: 0.6;
+}
+
+.task-card.completed .task-title {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.task-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
