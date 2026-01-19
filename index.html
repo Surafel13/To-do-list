@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List with Timed Notifications</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>My Tasks</h1>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </header>
+
+        <!-- Add Task Form -->
+        <section class="form-section">
+            <form id="taskForm" class="task-form">
+                <div class="form-group">
+                    <label for="taskTitle">Task Title *</label>
+                    <input 
+                        type="text" 
+                        id="taskTitle" 
+                        placeholder="Enter task title" 
+                        required
+                        maxlength="100"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Description</label>
+                    <textarea 
+                        id="taskDescription" 
+                        placeholder="Enter task description (optional)"
+                        maxlength="500"
+                        rows="3"
+                    ></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskDate">Date *</label>
+                        <input 
+                            type="date" 
+                            id="taskDate" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="taskTime">Time *</label>
+                        <input 
+                            type="time" 
+                            id="taskTime" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add Task</button>
+            </form>
+        </section>
+
+        <!-- Notifications Permission -->
+        <div id="notificationPrompt" class="notification-prompt">
+            <p>Enable notifications to get alerts when tasks are due</p>
+            <button id="enableNotifications" class="btn btn-small">Enable Notifications</button>
+            <button id="skipNotifications" class="btn btn-secondary btn-small">Skip</button>
+        </div>
+
+        <!-- Sort Options -->
+        <div class="controls">
+            <select id="sortBy" class="sort-select">
+                <option value="date">Sort by Date</option>
+                <option value="title">Sort by Title</option>
+            </select>
+        </div>
+
+        <!-- Task List -->
+        <section class="task-list-section">
+            <div id="taskList" class="task-list">
+                <p class="empty-state">No tasks yet. Add one above!</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Task</h2>
+            <form id="editForm" class="task-form">
+                <div class="form-group">
+                    <label for="editTitle">Task Title *</label>
+                    <input 
+                        type="text" 
+                        id="editTitle" 
+                        required
+                        maxlength="100"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="editDescription">Description</label>
+                    <textarea 
+                        id="editDescription" 
+                        maxlength="500"
+                        rows="3"
+                    ></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editDate">Date *</label>
+                        <input type="date" id="editDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editTime">Time *</label>
+                        <input type="time" id="editTime" required>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="button" id="cancelEdit" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Sound (optional) -->
+    <audio id="notificationSound" src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA=="></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
