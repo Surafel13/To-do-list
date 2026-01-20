@@ -427,3 +427,17 @@ const app = {
         }
     },
 };
+
+// Initialize app when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => app.init());
+} else {
+    app.init();
+}
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', () => {
+    if (app.checkInterval) {
+        clearInterval(app.checkInterval);
+    }
+});
